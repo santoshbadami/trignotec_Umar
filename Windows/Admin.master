@@ -1,0 +1,76 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Admin.master.cs" Inherits="Windows_Admin" %>
+
+<%@ Register Src="~/Windows/TopMenu.ascx" TagName="TopMenu" TagPrefix="uc" %>
+<%@ Register Src="~/Windows/LeftMenu.ascx" TagName="LeftMenu" TagPrefix="uc" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <meta charset="utf-8" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Demo</title>
+    <link rel="Shortcut Icon" href="images/trignotec-logo-tab.png" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+        name="viewport" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+</head>
+<style type="text/css">
+    .colorBlue
+    {
+        color: #1584c5;
+    }
+</style>
+<body class="app sidebar-mini">
+    <script type="text/javascript">
+        function DisableButtons() {
+            var inputs = document.getElementsByTagName("INPUT");
+            for (var i in inputs) {
+                if (inputs[i].type == "button" || inputs[i].type == "submit") {
+                    inputs[i].disabled = true;
+                }
+            }
+        }
+        window.onbeforeunload = DisableButtons;
+    </script>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <uc:TopMenu ID="ucTopMenu" runat="server" />
+    <uc:LeftMenu ID="ucLeftMenu" runat="server" />
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+    <%--<script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>--%>
+    <script src="js/popper.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/main.js" type="text/javascript"></script>
+    <script src="js/plugins/pace.min.js" type="text/javascript"></script>
+    <script src="js/plugins/select2.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript">        $('#sampleTable').DataTable();</script>
+    <script src="js/scriptAdmin.js" type="text/javascript"></script>
+    <%--<script type="text/javascript">
+        // register jQuery extension
+        jQuery.extend(jQuery.expr[':'], {
+            focusable: function (el, index, selector) {
+                return $(el).is('a, button, :input, [tabindex]');
+            }
+        });
+
+        $(document).on('keypress', 'input,select', function (e) {
+            if (e.which == 13) {
+                e.preventDefault();
+                // Get all focusable elements on the page
+                var $canfocus = $(':focusable');
+                var index = $canfocus.index(document.activeElement) + 1;
+                if (index >= $canfocus.length) index = 0;
+                $canfocus.eq(index).focus();
+            }
+        });
+    </script>--%>
+</body>
+</html>
